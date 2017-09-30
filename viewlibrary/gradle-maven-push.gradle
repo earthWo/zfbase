@@ -2,7 +2,7 @@ apply plugin:'maven'
 apply plugin: 'signing'
 
 def isReleaseBuild() {
-    return false
+    return true
 }
 
 def getReleaseRepositoryUrl() {
