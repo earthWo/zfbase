@@ -8,7 +8,7 @@
   <packaging>aar</packaging>
   <name>testproject</name>
   <description></description>
-  <url>http://gitlab.ops.xkeshi.so/wuzefeng/testproject/tree/master</url>
+  <url></url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
