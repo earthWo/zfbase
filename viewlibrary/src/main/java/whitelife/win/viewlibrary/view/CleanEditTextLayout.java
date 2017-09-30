@@ -1,9 +1,6 @@
 package whitelife.win.viewlibrary.view;
 
 import android.content.Context;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -31,15 +28,15 @@ public class CleanEditTextLayout extends FrameLayout implements View.OnClickList
     private static final String CLEANVIEW_TAG="clean_tag";
 
 
-    public CleanEditTextLayout(@NonNull Context context) {
+    public CleanEditTextLayout( Context context) {
         super(context);
     }
 
-    public CleanEditTextLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public CleanEditTextLayout( Context context,  AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CleanEditTextLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public CleanEditTextLayout( Context context,  AttributeSet attrs,  int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

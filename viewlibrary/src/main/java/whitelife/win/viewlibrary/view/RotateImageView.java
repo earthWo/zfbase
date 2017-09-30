@@ -3,9 +3,8 @@ package whitelife.win.viewlibrary.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-
 import whitelife.win.viewlibrary.R;
 
 
@@ -14,16 +13,16 @@ import whitelife.win.viewlibrary.R;
  * Created by wuzefeng on 2017/9/26.
  */
 
-public class RotateImageView extends android.support.v7.widget.AppCompatImageView {
+public class RotateImageView extends AppCompatImageView {
     public RotateImageView(Context context) {
         this(context,null);
     }
 
-    public RotateImageView(Context context, @Nullable AttributeSet attrs) {
+    public RotateImageView(Context context,  AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public RotateImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RotateImageView(Context context,  AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         TypedArray a=context.obtainStyledAttributes(attrs, R.styleable.rotateImageView);

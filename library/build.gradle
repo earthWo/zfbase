@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'realm-android'
+apply from: file('gradle-maven-push.gradle')
 
 
 android {
