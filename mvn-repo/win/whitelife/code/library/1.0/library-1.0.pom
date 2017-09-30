@@ -6,9 +6,9 @@
   <artifactId>library</artifactId>
   <version>1.0</version>
   <packaging>aar</packaging>
-  <name>test_project</name>
+  <name>testproject</name>
   <description></description>
-  <url></url>
+  <url>http://gitlab.ops.xkeshi.so/wuzefeng/testproject/tree/master</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
