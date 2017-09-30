@@ -1,18 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="whitelife.win.testproject.MainActivity">
+
+
+        <!--<whitelife.win.viewlibrary.view.RotateImageView-->
+            <!--android:id="@+id/rt_image"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:src="@mipmap/images"/>-->
+
+
+        <!--<whitelife.win.viewlibrary.view.CleanEditTextLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp">-->
+
+            <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:tag="@string/edit_tag"/>-->
+
+            <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="50dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="50dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_gravity="right"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:src="@color/colorAccent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:tag="@string/clean_tag"/>&ndash;&gt;-->
+
+        <!--</whitelife.win.viewlibrary.view.CleanEditTextLayout>-->
+
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_height="50dp" />-->
+
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/sr_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="whitelife.win.testproject.MainActivity">
+    app:front="@+id/tv_item"
+    ></android.support.v7.widget.RecyclerView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/hf_recycler_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+        <!--</android.support.v7.widget.RecyclerView>-->
+    </LinearLayout>
+</layout>

@@ -10,6 +10,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/permissionlibrary" />
+            <option value="$PROJECT_DIR$/recyclerviewlibrary" />
+            <option value="$PROJECT_DIR$/viewlibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

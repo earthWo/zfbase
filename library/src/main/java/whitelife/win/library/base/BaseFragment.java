@@ -20,7 +20,6 @@ import whitelife.win.library.mvp.BaseView;
 
 public abstract class BaseFragment<P extends BasePresent,V extends BaseView> extends Fragment implements BaseView,LoaderManager.LoaderCallbacks<P>{
 
-
     private P mPresent;
 
     private Context mContext;
@@ -108,8 +107,6 @@ public abstract class BaseFragment<P extends BasePresent,V extends BaseView> ext
     public void onDestroyView() {
         super.onDestroyView();
     }
-
-
 
     protected abstract int getLayoutResId();
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwipeRecyclerView">
+        <attr name="maxScrollLength" format="dimension" />
+        <attr name="scrollTime" format="integer" />
+        <attr name="swipeClosesAllItemsWhenListMoves" format="boolean"></attr>
+        <attr name="onlyOneOpenedWhenSwipe" format="boolean"></attr>
+        <attr name="front" format="reference"></attr>
+    </declare-styleable>
+</resources>
