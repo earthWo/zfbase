@@ -25,7 +25,7 @@ public class RealmHelper {
     private Realm realm=Realm.getDefaultInstance();
 
     public <T> T create(Class<T> t){
-        return (T) Proxy.newProxyInstance(t.getClassLoader(), new Class[]{t}, new InvocationHandler() {
+        return (T) Proxy.newProxyInstance(t.getClassLoader(), new Class[]{t},new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 if(method.getDeclaringClass()==Object.class){
@@ -96,12 +96,7 @@ public class RealmHelper {
             }
         }
         return returnObject;
-
-
-
     }
-
-
 
     private Object parseSearchMethod(Object[]args){
         Object returnObject = null;
@@ -143,7 +138,6 @@ public class RealmHelper {
         return returnObject;
     }
 
-
     private Object parseAddMethod(Object[] args){
         Object returnObject = null;
         if(args!=null&&args.length>0){
@@ -158,8 +152,6 @@ public class RealmHelper {
         }
         return returnObject;
     }
-
-
 
     private Object parseDeleteMethod(Object[]args){
         Object returnObject = null;

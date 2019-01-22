@@ -1,6 +1,5 @@
 package whitelife.win.permissionlibrary;
 
-import java.io.Serializable;
 
 /**
  * Created by wuzefeng on 2017/9/27.

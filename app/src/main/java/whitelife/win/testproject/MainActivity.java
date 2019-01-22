@@ -2,7 +2,9 @@ package whitelife.win.testproject;
 
 import android.Manifest;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Handler;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,62 +13,110 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import whitelife.win.library.database.RealmHelper;
 import whitelife.win.library.database.RealmInterface;
+import whitelife.win.library.rx.RxTransformer;
 import whitelife.win.library.util.LogUtils;
 import whitelife.win.permissionlibrary.PermissionCallback;
 import whitelife.win.permissionlibrary.PermissionManager;
-import whitelife.win.recyclerviewlibrary.adapter.HFRecyclerViewAdapter;
 import whitelife.win.recyclerviewlibrary.adapter.LoadMoreAdapter;
 import whitelife.win.recyclerviewlibrary.adapter.MultiRecyclerViewAdapter;
 import whitelife.win.recyclerviewlibrary.adapter.MultiRecyclerViewHolder;
 import whitelife.win.recyclerviewlibrary.callback.ItemTouchCallback;
-import whitelife.win.recyclerviewlibrary.itemDecoration.DividerItemDecoration;
+import whitelife.win.recyclerviewlibrary.itemDecoration.DividerItemdecoration;
 import whitelife.win.recyclerviewlibrary.provider.ItemTypeProvider;
 import whitelife.win.testproject.bean.User;
+import whitelife.win.viewlibrary.view.MoveAnimateView;
 
 
 public class MainActivity extends AppCompatActivity {
 
     List<String>dataList=new ArrayList<>();
 
+    MoveAnimateView moveAnimateView;
+
+    Point s;
+    Point e;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        testSwipe();
+        testRecycler();
+//        checkPermission();
+
+
+//        testBindService();
+
+
+//        moveAnimateView=new MoveAnimateView(this);
+//
+//        s=new Point(100,100);
+//        e=new Point(500,500);
+//        v=getLayoutInflater().inflate(R.layout.pop, (ViewGroup) moveAnimateView.getContentView(),false);
     }
 
 
-    private void testSwipe(){
-        for(int i=0;i<300;i++){
-            dataList.add("第"+i+"个");
-        }
-        RecyclerView recyclerView= (RecyclerView) findViewById(R.id.sr_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final MultiRecyclerViewAdapter<String>innerAdapter=new MultiRecyclerViewAdapter<>(this,dataList) ;
-        innerAdapter.addItemType(provider1);
-        HFRecyclerViewAdapter adapter=new HFRecyclerViewAdapter(this);
-        adapter.addHeaderView(R.layout.item_header).addFooterView(R.layout.item_footer);
-        adapter.setInnerAdapter(innerAdapter);
-        recyclerView.setAdapter(innerAdapter);
-        innerAdapter.setItemClickListener(new MultiRecyclerViewAdapter.OnItemClickListener() {
-            @Override
-            public void itemClick(int position, View view, MultiRecyclerViewHolder holder) {
-                Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_SHORT).show();
-            }
-        });
-        ItemTouchHelper.Callback callback=new ItemTouchCallback(innerAdapter);
-        ItemTouchHelper itemTouchHelper=new ItemTouchHelper(callback);
-        itemTouchHelper.attachToRecyclerView(recyclerView);
+    View v;
 
+    public void startAnimtor(View v){
+//        moveAnimateView.startAnimate(findViewById(R.id.v1),findViewById(R.id.v2),this.v,getWindow().getDecorView());
+    }
+
+    public void showView(View v){
+        moveAnimateView.showAsDropDown(getWindow().getDecorView());
+    }
+
+
+    private void testBindService(){
 
     }
+
+//    @Override
+//    public void onBackPressed() {
+////        if(moveAnimateView.isShowing()){
+////            moveAnimateView.dismiss();
+////        }else{
+////            super.onBackPressed();
+////        }
+//    }
+
+//    private void testSwipe(){
+//        for(int i=0;i<300;i++){
+//            dataList.add("第"+i+"个");
+//        }
+//        RecyclerView recyclerView= (RecyclerView) findViewById(R.id.sr_list);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        final MultiRecyclerViewAdapter<String>innerAdapter=new MultiRecyclerViewAdapter<>(this,dataList) ;
+//        innerAdapter.addItemType(provider1);
+//        HFRecyclerViewAdapter adapter=new HFRecyclerViewAdapter(this);
+//        adapter.addHeaderView(R.layout.item_header).addFooterView(R.layout.item_footer);
+//        adapter.setInnerAdapter(innerAdapter);
+//        recyclerView.setAdapter(innerAdapter);
+//        innerAdapter.setItemClickListener(new MultiRecyclerViewAdapter.OnItemClickListener() {
+//            @Override
+//            public void itemClick(int position, View view, MultiRecyclerViewHolder holder) {
+//                Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        ItemTouchHelper.Callback callback=new ItemTouchCallback(innerAdapter);
+//        ItemTouchHelper itemTouchHelper=new ItemTouchHelper(callback);
+//        itemTouchHelper.attachToRecyclerView(recyclerView);
+//
+//
+//    }
 
 
     private void testRecycler(){
@@ -74,12 +124,11 @@ public class MainActivity extends AppCompatActivity {
             dataList.add("第"+i+"个");
         }
 
-        RecyclerView recyclerView= (RecyclerView) findViewById(R.id.sr_list);
+        RecyclerView recyclerView=  findViewById(R.id.sr_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        final MultiRecyclerViewAdapter<String>innerAdapter=new MultiRecyclerViewAdapter<>(this,dataList) ;
-        innerAdapter.addItemType(provider1).addItemType(provider2);
-        recyclerView.addItemDecoration(new DividerItemDecoration(LinearLayoutManager.VERTICAL,10, Color.BLACK));
+        final MultiRecyclerViewAdapter<String> innerAdapter=new MultiRecyclerViewAdapter<>(this,dataList) ;
+        innerAdapter.addItemViewProvider(provider1);
+        recyclerView.addItemDecoration(new DividerItemdecoration(LinearLayoutManager.VERTICAL,1, Color.BLACK));
 
         final LoadMoreAdapter adapter=new LoadMoreAdapter(this);
         adapter.setLoadMoreView(R.layout.layout_load_more);
@@ -130,6 +179,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("长按",position+"");
             }
         });
+
+        ItemTouchCallback itemTouchCallback = new ItemTouchCallback();
+        ItemTouchHelper touchHelper = new ItemTouchHelper(itemTouchCallback);
+        touchHelper.attachToRecyclerView(recyclerView);
     }
 
 
@@ -262,7 +315,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-
 
 
     }

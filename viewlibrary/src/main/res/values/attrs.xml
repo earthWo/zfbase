@@ -5,4 +5,22 @@
         <attr name="speed" format="float"></attr>
     </declare-styleable>
 
+
+    <declare-styleable name="cleanEditText">
+        <attr name="icon" format="reference"></attr>
+        <attr name="focusIcon" format="reference"></attr>
+        <attr name="deleteIcon" format="reference"></attr>
+        <attr name="iconWidth" format="dimension"></attr>
+        <attr name="iconHeight" format="dimension"></attr>
+        <attr name="deleteIconWidth" format="dimension"></attr>
+        <attr name="deleteIconHeight" format="dimension"></attr>
+        <attr name="dividerColor" format="color"></attr>
+        <attr name="dividerBonds" format="dimension"></attr>
+        <attr name="focusDividerColor" format="color"></attr>
+        <attr name="dividerMarginLeft" format="dimension"></attr>
+        <attr name="dividerMarginRight" format="dimension"></attr>
+        <attr name="focusTextColor" format="color"></attr>
+        <attr name="background" format="reference"></attr>
+        <attr name="cursor" format="reference"></attr>
+    </declare-styleable>
 </resources>

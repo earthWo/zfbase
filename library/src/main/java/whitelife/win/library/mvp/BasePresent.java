@@ -1,5 +1,6 @@
 package whitelife.win.library.mvp;
 
+import whitelife.win.library.bean.Response;
 import whitelife.win.library.lifecycle.LifeCycleEvent;
 
 /**
@@ -28,5 +29,13 @@ public abstract class BasePresent<V extends BaseView> {
 
 
     public abstract void onLifeCycleChange(@LifeCycleEvent int lifeCycleEvent);
+
+
+    /**
+     * 自动更新数据
+     * @param code
+     * @param response
+     */
+    public abstract void autoUpdateData(int code, Response response);
 
 }

@@ -25,16 +25,13 @@ import whitelife.win.library.mvp.BaseView;
 public abstract class BaseActivity<P extends BasePresent,V extends BaseView> extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<P>,BaseView,LifeCycleListener,LifeCycleCleanListener{
 
-
     protected Context mContext;
 
     private LifeCycleCleanHelper mLifeCycleCleanHelper;
 
-
     protected P mPresent;
 
     private int mLifeCycleEvent;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +45,6 @@ public abstract class BaseActivity<P extends BasePresent,V extends BaseView> ext
         getSupportLoaderManager().initLoader(11,null,this);
         initViews();
     }
-
 
     @Override
     protected void onStart() {
@@ -77,11 +73,11 @@ public abstract class BaseActivity<P extends BasePresent,V extends BaseView> ext
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mPresent!=null)mPresent.detachView();
+        if(mPresent!=null) {
+            mPresent.detachView();
+        }
         onLifeCycleChange(LifeCycleEvent.DESTROY);
     }
-
-
 
     @Override
     public Loader<P> onCreateLoader(int id, Bundle args) {
@@ -91,7 +87,7 @@ public abstract class BaseActivity<P extends BasePresent,V extends BaseView> ext
     @Override
     public void onLoadFinished(Loader<P> loader, P data) {
         mPresent=data;
-        mPresent.attachView((V)this);
+        mPresent.attachView(this);
         fetchData();
     }
 
@@ -99,7 +95,6 @@ public abstract class BaseActivity<P extends BasePresent,V extends BaseView> ext
     public void onLoaderReset(Loader<P> loader) {
         mPresent=null;
     }
-
 
     /**
      * 获取res id
@@ -112,12 +107,13 @@ public abstract class BaseActivity<P extends BasePresent,V extends BaseView> ext
      */
     protected abstract void fetchData();
 
-
     protected abstract Loader<P>createPresentLoader(int id, Bundle args);
 
-
-
     protected abstract void initViews();
+
+    protected abstract boolean bindService();
+
+
 
 
     @Override
@@ -153,4 +149,5 @@ public abstract class BaseActivity<P extends BasePresent,V extends BaseView> ext
     public <T> FlowableTransformer<T, T> bindEventWithFlowable(@LifeCycleEvent int lifeCycle) {
         return mLifeCycleCleanHelper.bindEventWithFlowable(lifeCycle);
     }
+
 }

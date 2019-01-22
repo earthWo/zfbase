@@ -1,12 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
+        android:id="@+id/root"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="whitelife.win.testproject.MainActivity">
+        android:orientation="vertical">
+
+        <!--<com.airbnb.lottie.LottieAnimationView-->
+            <!--android:layout_width="202dp"-->
+            <!--android:layout_height="202dp"-->
+            <!--app:lottie_fileName="building_screen.json"-->
+            <!--app:lottie_loop="true"-->
+            <!--app:lottie_autoPlay="true"/>-->
+
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="先显示"-->
+            <!--android:onClick="showView"/>-->
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="开始动画"-->
+            <!--android:onClick="startAnimtor"/>-->
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<whitelife.win.viewlibrary.view.CleanEditText-->
+            <!--android:id="@+id/et"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--app:focusIcon="@drawable/logo"-->
+            <!--app:cursor="@drawable/cursor"-->
+            <!--app:icon="@drawable/app_logo"-->
+            <!--android:gravity="center_vertical"-->
+            <!--app:deleteIcon="@drawable/app_logo"-->
+            <!--app:focusTextColor="#aa44cc"-->
+            <!--app:iconWidth="20dp"-->
+            <!--app:iconHeight="20dp"-->
+            <!--app:dividerMarginLeft="10dp"-->
+            <!--app:dividerMarginRight="10dp"-->
+            <!--app:deleteIconWidth="20dp"-->
+            <!--android:drawablePadding="10dp"-->
+            <!--app:deleteIconHeight="20dp"-->
+            <!--app:dividerColor="@color/colorPrimaryDark"-->
+            <!--app:focusDividerColor="#009988"-->
+            <!--app:dividerBonds="3dp"-->
+            <!--/>-->
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
 
 
         <!--<whitelife.win.viewlibrary.view.RotateImageView-->
@@ -53,5 +104,25 @@
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="match_parent">-->
         <!--</android.support.v7.widget.RecyclerView>-->
+
+
+        <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<View-->
+                <!--android:id="@+id/v1"-->
+                <!--android:layout_width="10dp"-->
+                <!--android:layout_height="10dp"-->
+                <!--android:background="@color/colorAccent"></View>-->
+
+            <!--<View-->
+                <!--android:id="@+id/v2"-->
+                <!--android:layout_width="10dp"-->
+                <!--android:layout_height="10dp"-->
+                <!--android:layout_margin="40dp"-->
+                <!--android:layout_gravity="bottom|right"-->
+                <!--android:background="@color/colorAccent"></View>-->
+        <!--</FrameLayout>-->
     </LinearLayout>
 </layout>

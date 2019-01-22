@@ -13,9 +13,6 @@ public class SyncUtils {
 
     private SyncUtils(){}
 
-
-
-
     public synchronized static void syncRound(){
 
         int i=0;

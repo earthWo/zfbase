@@ -20,7 +20,9 @@ import whitelife.win.recyclerviewlibrary.R;
 
 /**
  * 侧滑可以看item下一层的 RecyclerView
- * Created by wuzefeng on 16/9/22.
+ *
+ * @author wuzefeng
+ * @date 16/9/22
  */
 
 public class SwipeRecyclerView extends RecyclerView {
@@ -235,7 +237,9 @@ public class SwipeRecyclerView extends RecyclerView {
                 Rect rect=new Rect();
                 getChildAt(i).getGlobalVisibleRect(rect);
                 rect.right=Math.abs(rect.right);
-                if(viewTop==0)getViewTop();
+                if(viewTop==0) {
+                    getViewTop();
+                }
                 rect.top=rect.top-viewTop;
                 rect.bottom=rect.bottom-viewTop;
                 if(rect.contains(x,y)){
@@ -475,7 +479,9 @@ public class SwipeRecyclerView extends RecyclerView {
 
                 scroller.startScroll(layoutParams.rightMargin,0,maxScrollLength-layoutParams.rightMargin,0,time);
 
-                if(!openItemPosition.contains(touchPosition))openItemPosition.add(touchPosition+"");
+                if(!openItemPosition.contains(touchPosition)) {
+                    openItemPosition.add(touchPosition + "");
+                }
 
             }
 

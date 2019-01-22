@@ -12,7 +12,7 @@ import java.lang.annotation.RetentionPolicy;
 
 @IntDef({LifeCycleEvent.CREATE,LifeCycleEvent.START,LifeCycleEvent.RESUME,
         LifeCycleEvent.PAUSE,LifeCycleEvent.STOP,LifeCycleEvent.DESTROY})
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.SOURCE)
 public @interface LifeCycleEvent {
 
     int CREATE=0x00;

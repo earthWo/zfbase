@@ -11,7 +11,7 @@ import android.view.View;
  * Created by wuzefeng on 2017/9/28.
  */
 
-public class DividerItemDecoration extends RecyclerView.ItemDecoration {
+public class DividerItemdecoration extends RecyclerView.ItemDecoration {
 
     private int direction;
 
@@ -22,7 +22,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private Paint paint;
 
 
-    public DividerItemDecoration(int direction, int width, int color) {
+    public DividerItemdecoration(int direction, int width, int color) {
         this.direction = direction;
         this.width = width;
         this.color = color;
@@ -105,9 +105,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         if(direction==LinearLayoutManager.HORIZONTAL){
-            outRect.set(0,0,width/2,0);
+            outRect.set(0,0,width,0);
         }else{
-            outRect.set(0,0,0,width/2);
+            outRect.set(0,0,0,width);
         }
     }
 }

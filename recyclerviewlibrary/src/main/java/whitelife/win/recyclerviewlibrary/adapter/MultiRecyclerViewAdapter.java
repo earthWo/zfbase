@@ -121,7 +121,7 @@ public class MultiRecyclerViewAdapter<T> extends RecyclerView.Adapter<MultiRecyc
         }
     }
 
-    public MultiRecyclerViewAdapter<T> addItemType(ItemTypeProvider<T> provider){
+    public MultiRecyclerViewAdapter<T> addItemViewProvider(ItemTypeProvider<T> provider){
         itemTypeProviderHelper.addItemType(provider);
         return this;
     }

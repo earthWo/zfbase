@@ -12,10 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by wuzefeng on 2017/9/27.
+ *
+ * @author wuzefeng
+ * @date 2017/9/27
  */
 
-public class PermissionActivity extends Activity {
+public class PermissionActivity extends Activity implements CallBackInterface{
 
     private  PermissionCallback callback;
 
@@ -23,20 +25,11 @@ public class PermissionActivity extends Activity {
 
     private static final int REQUEST_INT=100;
 
-    private static Map<Integer,PermissionCallback>callbackMap;
-    static {
-        callbackMap=new HashMap<>();
-    }
 
-    public static void addCallback(int code,PermissionCallback callback){
-        callbackMap.put(code,callback);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        callback = callbackMap.get(getIntent().getIntExtra(PermissionManager.INTENT_KEY_CALLBACK,0));
-        callbackMap.remove(getIntent().getIntExtra(PermissionManager.INTENT_KEY_CALLBACK,0));
         permissions=getIntent().getStringArrayListExtra(PermissionManager.INTENT_KEY_PERMISSION);
         checkPermission();
     }
@@ -104,5 +97,11 @@ public class PermissionActivity extends Activity {
         if(callback!=null){
             callback.cancel(permission);
         }
+    }
+
+
+    @Override
+    public void setCallback(PermissionCallback callback) {
+        this.callback=callback;
     }
 }

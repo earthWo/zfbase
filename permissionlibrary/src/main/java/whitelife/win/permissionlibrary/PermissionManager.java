@@ -5,11 +5,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by wuzefeng on 2017/9/27.
@@ -22,9 +19,6 @@ public class PermissionManager{
     private PermissionCallback callback;
 
     public static final String INTENT_KEY_PERMISSION="intent_key_permission";
-
-    public static final String INTENT_KEY_CALLBACK="intent_key_callback";
-
 
     private PermissionManager(Context context){
         this.context=context;
@@ -65,10 +59,9 @@ public class PermissionManager{
             }
 
             if(permissionList.size()>0){
+                new PermissionCallbackRegister<>(context,PermissionActivity.class,callback);
                 Intent intent=new Intent(context,PermissionActivity.class);
                 intent.putStringArrayListExtra(INTENT_KEY_PERMISSION,permissionList);
-                intent.putExtra(INTENT_KEY_CALLBACK,callback.hashCode());
-                PermissionActivity.addCallback(callback.hashCode(),callback);
                 context.startActivity(intent);
             }else{
                 callback.finish();

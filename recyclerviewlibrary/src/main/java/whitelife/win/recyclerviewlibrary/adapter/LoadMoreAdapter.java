@@ -77,6 +77,7 @@ public class LoadMoreAdapter extends HFRecyclerViewAdapter {
      * 重写addFooterView方法，如果有loadmore时添加的footer在其之前
      * @param view
      */
+    @Override
     public LoadMoreAdapter addFooterView(View view){
         if(view!=null&&footerViewList!=null){
             if(hasLoadMore){
